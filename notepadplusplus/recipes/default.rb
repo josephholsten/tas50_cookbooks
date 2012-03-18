@@ -2,14 +2,13 @@
 # Cookbook Name:: notepadplusplus
 # Recipe:: default
 #
-# Copyright 2012, Webtrends Inc.
+# Copyright 2012, Tim Smith - Webtrends Inc.
 #
 # All rights reserved
 #
 # Code based off the PowerShell cookbook by Seth Chisamore
 
-case node['platform']
-when "windows"
+if platform?("windows")
     windows_package "Notepad++" do
         source node['notepadplusplus']['http_url']
         installer_type :custom
